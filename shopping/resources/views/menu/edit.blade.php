@@ -7,20 +7,21 @@
 @section('content')
     <div class="content-wrapper">
 
-        @include('partials.content-header',['name' =>'menu','key'=> 'add'])
+        @include('partials.content-header',['name' =>'menu','key'=> 'Edit'])
 
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('menu.store')}}" method="post">
+                        <form action="{{route('menu.update',['id'=>$menuFollowIdEdit->id])}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Tên Menu</label>
                                 <input type="text" class="form-control"
                                        name="name"
-                                       placeholder="Nhập tên menu ">
+                                       placeholder="Nhập tên menu "
+                                value="{{$menuFollowIdEdit->name}}">
 
                             </div>
                             <div class="form-group">

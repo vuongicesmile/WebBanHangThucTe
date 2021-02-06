@@ -25,25 +25,25 @@
                             </tr>
                             </thead>
                             <tbody>
-{{--                            @foreach($categories as $category)--}}
+                            @foreach($menu as $menus)
 
-{{--                                <tr>--}}
-{{--                                    <th scope="row">{{$category->id}}</th>--}}
-{{--                                    <td>{{$category->name}}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <a href="{{route('categories.edit',['id'=> $category->id ])}}"--}}
-{{--                                           class="btn btn-default">Edit</a>--}}
-{{--                                        <a href="{{route('categories.delete',['id'=> $category->id ])}}"--}}
-{{--                                           class="btn btn-danger">Delete</a>--}}
-{{--                                    </td>--}}
-{{--                                    @endforeach--}}
+                                <tr>
+                                    <th scope="row">{{$menus->id}}</th>
+                                    <td>{{$menus->name}}</td>
+                                    <td>
+                                        <a href="{{ route('menu.edit', ['id'=>$menus->id])}}"
+                                           class="btn btn-default">Edit</a>
+                                        <a href="{{route('menu.delete', ['id'=>$menus->id])}}"
+                                           class="btn btn-danger">Delete</a>
+                                    </td>
+                                    @endforeach
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
                     <div class="col-md-12">
-{{--                        {{$categories->links()}}--}}
+                        {{$menu->links()}}
                     </div>
 
                 </div>

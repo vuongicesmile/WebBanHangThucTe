@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','AdminController@loginAdmin');
+Route::post('/','AdminController@postloginAdmin');
 
 Route::get('/home', function () {
     return view('home');
@@ -60,6 +59,20 @@ Route::prefix('menu')->group(function () {
     Route::post('/store',[
         'as' => 'menu.store',
         'uses' =>'MenuController@store'
+    ]);
+
+
+    Route::get('/edit/{id}',[
+        'as' => 'menu.edit',
+        'uses' =>'MenuController@edit'
+    ]);
+    Route::post('/update/{id}',[
+        'as' => 'menu.update',
+        'uses' =>'MenuController@update'
+    ]);
+    Route::get('/delete/{id}',[
+        'as' => 'menu.delete',
+        'uses' =>'MenuController@delete'
     ]);
 });
 
