@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,4 +32,35 @@ Route::prefix('categories')->group(function () {
         'as' => 'categories.store',
         'uses' =>'CategoryController@store'
     ]);
+
+    Route::get('/edit/{id}',[
+        'as' => 'categories.edit',
+        'uses' =>'CategoryController@edit'
+    ]);
+    Route::post('/update/{id}',[
+        'as' => 'categories.update',
+        'uses' =>'CategoryController@update'
+    ]);
+    Route::get('/delete/{id}',[
+        'as' => 'categories.delete',
+        'uses' =>'CategoryController@delete'
+    ]);
+
 });
+
+Route::prefix('menu')->group(function () {
+    Route::get('/', [
+        'as' => 'menu.index',
+        'uses' => 'MenuController@index'
+    ]);
+    Route::get('/create',[
+        'as' => 'menu.create',
+        'uses' =>'MenuController@create'
+    ]);
+    Route::post('/store',[
+        'as' => 'menu.store',
+        'uses' =>'MenuController@store'
+    ]);
+});
+
+
