@@ -18,12 +18,12 @@ class MenuController extends Controller
     {
         $menu = $this->menu->paginate(10);
         //phan trang 10 bien tren 1 trang
-        return view('menu.index',compact('menu'));
+        return view('admin.menu.index',compact('menu'));
     }
     public function create()
     {
         $optionSelect =$this->menuRecursive->menuRecursiveAdd();
-        return view('menu.add',compact('optionSelect'));
+        return view('admin.menu.add',compact('optionSelect'));
     }
     public function store(Request $request)
     {
@@ -38,7 +38,7 @@ class MenuController extends Controller
     {
         $menuFollowIdEdit = $this->menu->find($id);
         $optionSelect =$this->menuRecursive->menuRecursiveEdit($menuFollowIdEdit->parent_id);
-        return view('menu.edit',compact('optionSelect','menuFollowIdEdit'));
+        return view('admin.menu.edit',compact('optionSelect','menuFollowIdEdit'));
     }
     public function update($id,Request $request)
     {
