@@ -15,3 +15,7 @@
     height: 130px;
     object-fit: cover;
 }
+.alert-danger {
+    margin-top: 10px;
+    padding: 3px 5px;
+}
