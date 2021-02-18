@@ -43,4 +43,22 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class,'role_user','user_id','role_id');
 
     }
+    public function checkPermissionAccess($permissionCheck)
+    {
+        //user login vao the thong co quyen add.edit, va xem menu
+        //lay duoc tat ca cac quyen cua user dang login vao he thong
+        $roles = auth()->user()->roles;
+        foreach ($roles as $role)
+        {
+            $permissions =$role->permissions;
+            if($permissions->contains('key_code',$permissionCheck)){
+                return true;
+            }
+        }
+        return false;
+
+        //so sanh gia tri dua vao router hien tai xem co ton tai trong
+        //cac quyen lay duoc hay ko
+
+    }
 }
