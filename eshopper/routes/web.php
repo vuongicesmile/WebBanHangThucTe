@@ -14,8 +14,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/category/{slug}/{id}',[
+   'as' => 'category.product',
+   'uses'=>'CategoryController@index'
+]);
 
 
-Route::get('/test','HomeController@test');
+
 
